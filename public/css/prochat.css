@@ -1,0 +1,648 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css);
+
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+
+ul li {
+  list-style: none;
+}
+
+._ProChat_disabled {
+  cursor: not-allowed !important;
+}
+
+._ProChat_block {
+  display: block;
+}
+
+._ProChat_br {
+  margin-bottom: 15px !important;
+}
+
+._ProChat_typing {
+  font-style: italic;
+}
+
+._ProChat_fabs {
+  bottom: 0;
+  position: fixed;
+  margin: 1em;
+  right: 0;
+  z-index: 99999999999999999999;
+}
+
+._ProChat_fab {
+  display: block;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  text-align: center;
+  color: #f0f0f0;
+  margin: 25px auto 0;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+  position: relative;
+  z-index: 998;
+  overflow: hidden;
+}
+
+._ProChat_fab > i {
+  font-size: 2em;
+  line-height: 55px;
+  -webkit-transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+._ProChat_fab:not(:last-child) {
+  width: 0;
+  height: 0;
+  margin: 20px auto 0;
+  opacity: 0;
+  visibility: hidden;
+  line-height: 40px;
+}
+
+._ProChat_fab:not(:last-child) > i {
+  font-size: 1.4em;
+  line-height: 40px;
+}
+
+._ProChat_fab:not(:last-child)._ProChat_is-visible {
+  width: 40px;
+  height: 40px;
+  margin: 15px auto 10;
+  opacity: 1;
+  visibility: visible;
+}
+
+._ProChat_fab:nth-last-child(1) {
+  -webkit-transition-delay: 25ms;
+  transition-delay: 25ms;
+}
+
+._ProChat_fab:not(:last-child):nth-last-child(2) {
+  -webkit-transition-delay: 20ms;
+  transition-delay: 20ms;
+}
+
+._ProChat_fab:not(:last-child):nth-last-child(3) {
+  -webkit-transition-delay: 40ms;
+  transition-delay: 40ms;
+}
+
+._ProChat_fab:not(:last-child):nth-last-child(4) {
+  -webkit-transition-delay: 60ms;
+  transition-delay: 60ms;
+}
+
+._ProChat_fab:not(:last-child):nth-last-child(5) {
+  -webkit-transition-delay: 80ms;
+  transition-delay: 80ms;
+}
+
+._ProChat_fab(:last-child):active,
+._ProChat_fab(:last-child):focus,
+._ProChat_fab(:last-child):hover {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.32);
+}
+
+/*Chatbox*/
+
+._ProChat_chat {
+  position: fixed;
+  right: 85px;
+  bottom: 20px;
+  width: 400px;
+  font-size: 12px;
+  line-height: 22px;
+  font-family: "Poppins";
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  opacity: 0;
+  box-shadow: 1px 1px 100px 2px rgba(0, 0, 0, 0.22);
+  border-radius: 10px;
+  -webkit-transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+._ProChat_chat_header {
+  font-size: 13px;
+  font-family: "Poppins";
+  font-weight: 500;
+  color: #f3f3f3;
+  height: 55px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding-top: 8px;
+}
+
+._ProChat_chat_header .span {
+  float: right;
+}
+
+._ProChat_chat._ProChat_is-visible {
+  opacity: 1;
+  -webkit-animation: _ProChat_zoomIn 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+  animation: _ProChat_zoomIn 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+._ProChat_chat_option {
+  float: left;
+  font-size: 15px;
+  list-style: none;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  text-align: relative;
+  margin-right: 10px;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
+._ProChat_chat_option img {
+  border-radius: 50%;
+  width: 55px;
+  float: left;
+  margin: -30px 20px 10px 20px;
+  border: 4px solid rgba(0, 0, 0, 0.21);
+}
+
+._ProChat_chat_option ._ProChat_title_client {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+._ProChat_chat_option .online {
+  opacity: 0.4;
+  font-size: 11px;
+  font-weight: 300;
+}
+
+#chat_body {
+  height: 450px;
+}
+
+a {
+  -webkit-animation: _ProChat_zoomIn 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+  animation: _ProChat_zoomIn 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+._ProChat_chat_field {
+  position: relative;
+  margin: 5px 0 5px 0;
+  width: 50%;
+  font-family: "Poppins";
+  font-size: 12px;
+  line-height: 30px;
+  font-weight: 500;
+  color: #4b4b4b;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  border: none;
+  outline: none;
+  display: inline-block;
+}
+
+._ProChat_chat_field.chat_message {
+  padding-top: 10px;
+  line-height: normal;
+  resize: none;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+._ProChat_tags {
+  margin: 20px;
+  bottom: 0px;
+  display: block;
+  width: 120%;
+}
+
+._ProChat_tags li {
+  padding: 5px 10px;
+  border-radius: 40px;
+  border: 1px solid rgb(3, 117, 208);
+  margin: 5px;
+  display: inline-block;
+  color: rgb(3, 117, 208);
+  cursor: pointer;
+}
+
+._ProChat_fab_field {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  background: #fff;
+  border-top: 1px solid #eee;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+._ProChat_fab_field a {
+  display: inline-block;
+  text-align: center;
+}
+
+#_ProChat_fab_camera {
+  float: left;
+  background: rgba(0, 0, 0, 0);
+  margin: 0 !important;
+  padding-top: 7px;
+}
+
+#_ProChat_fab_send {
+  float: right;
+  background: rgba(0, 0, 0, 0);
+  margin: 0 !important;
+  padding-top: 8px;
+}
+
+._ProChat_fab_field ._ProChat_fab {
+  width: 35px;
+  height: 35px;
+  box-shadow: none;
+  margin: 5px;
+}
+
+._ProChat_fab_field ._ProChat_fab > i {
+  font-size: 1.6em;
+  line-height: 35px;
+  color: #bbb;
+}
+
+._ProChat_fab_field ._ProChat_fab > i:hover {
+  color: #42a5f5;
+}
+
+._ProChat_chat_converse {
+  position: relative;
+  background: #fff;
+  margin: 0 0 0 0;
+  height: 300px;
+  min-height: 0;
+  font-size: 12px;
+  line-height: 18px;
+  overflow-y: auto;
+  width: 100%;
+  float: right;
+  /* padding-bottom: 100px; */
+}
+
+._ProChat_chat ._ProChat_chat_converse ._ProChat_chat_msg_item {
+  position: relative;
+  margin: 8px 0 15px 0;
+  padding: 8px 10px;
+  max-width: 60%;
+  display: block;
+  word-wrap: break-word;
+  border-radius: 3px;
+  clear: both;
+  z-index: 999;
+  font-size: 14px;
+}
+
+._ProChat_chat_msg_item_login {
+  max-width: 65% !important;
+}
+
+._ProChat_chat_msg_item small {
+  color: #666;
+  font-weight: 600;
+}
+
+._ProChat_status {
+  margin: 45px -50px 0 0;
+  float: right;
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+._ProChat_chat ._ProChat_chat_converse ._ProChat_chat_msg_item ._ProChat_chat_avatar {
+  position: absolute;
+  top: 0;
+}
+
+._ProChat_chat ._ProChat_chat_converse ._ProChat_chat_msg_item._ProChat_chat_msg_item_admin ._ProChat_chat_avatar {
+  left: -52px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+._ProChat_chat ._ProChat_chat_converse ._ProChat_chat_msg_item._ProChat_chat_msg_item_user ._ProChat_chat_avatar {
+  right: -52px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+._ProChat_chat ._ProChat_chat_converse ._ProChat_chat_msg_item ._ProChat_chat_avatar,
+._ProChat_chat_avatar img {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+._ProChat_chat_avatar img {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    max-width: 100%;
+  }
+
+._ProChat_chat ._ProChat_chat_converse ._ProChat_chat_msg_item._ProChat_chat_msg_item_admin {
+  margin-left: 60px;
+  float: left;
+  background: rgba(0, 0, 0, 0.03);
+  color: #666;
+}
+
+._ProChat_chat ._ProChat_chat_converse ._ProChat_chat_msg_item._ProChat_chat_msg_item_user {
+  margin-right: 20px;
+  float: right;
+  color: #fff;
+  font-size: 14px;
+}
+
+._ProChat_chat ._ProChat_chat_converse ._ProChat_chat_msg_item._ProChat_chat_msg_item_admin:before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -12px;
+  z-index: 998;
+  border: 6px solid transparent;
+  border-right-color: rgba(255, 255, 255, 0.4);
+}
+
+._ProChat_chat_form ._ProChat_get-notified label {
+  color: #077ad6;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+input._ProChat_chat_input {
+  position: relative;
+  width: 90%;
+  font-family: "Poppins";
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #4b4b4b;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  outline: none;
+  background: #fff;
+  display: inline-block;
+  resize: none;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+._ProChat_chat_form ._ProChat_get-notified input {
+  margin: 2px 0 0 0;
+  border: 1px solid #83c76d;
+}
+
+._ProChat_chat_form ._ProChat_get-notified i {
+  background: #83c76d;
+  width: 30px;
+  height: 32px;
+  font-size: 18px;
+  color: #fff;
+  line-height: 30px;
+  font-weight: 600;
+  text-align: center;
+  margin: 2px 0 0 -30px;
+  position: absolute;
+  border-radius: 3px;
+}
+
+._ProChat_chat_form ._ProChat_message_form {
+  margin: 10px 0 0 0;
+}
+
+._ProChat_chat_form ._ProChat_message_form input {
+  margin: 5px 0 5px 0;
+  border: 1px solid #e0e0e0;
+  width: 100%;
+}
+
+._ProChat_chat_form ._ProChat_message_form button {
+  margin: 5px 0 5px 0;
+  border: 1px solid #e0e0e0;
+  position: relative;
+  width: 100%;
+  font-family: "Poppins";
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  outline: none;
+  background: #fff;
+  display: inline-block;
+  resize: none;
+  padding: 5px;
+  border-radius: 3px;
+  background: #42a5f5;
+  cursor: pointer;
+}
+
+/*Chatbox scrollbar*/
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  margin: 2px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/*Element state*/
+
+._ProChat_is-active {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+._ProChat_is-float {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.32);
+}
+
+/*Animation*/
+
+@-webkit-keyframes _ProChat_zoomIn {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes _ProChat_zoomIn {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes _ProChat_load {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes _ProChat_load {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* SMARTPHONES PORTRAIT */
+
+@media only screen and (min-width: 300px) {
+  ._ProChat_chat {
+    width: 250px;
+  }
+}
+
+/* SMARTPHONES LANDSCAPE */
+
+@media only screen and (min-width: 480px) {
+  ._ProChat_chat {
+    width: 300px;
+  }
+
+  ._ProChat_chat_field {
+    width: 65%;
+  }
+}
+
+/* TABLETS PORTRAIT */
+
+@media only screen and (min-width: 768px) {
+  ._ProChat_chat {
+    width: 300px;
+  }
+
+  ._ProChat_chat_field {
+    width: 65%;
+  }
+}
+
+/* TABLET LANDSCAPE / DESKTOP */
+
+@media only screen and (min-width: 1024px) {
+  ._ProChat_chat {
+    width: 350px;
+  }
+
+  ._ProChat_chat_field {
+    width: 65%;
+  }
+}
+
+.zmdi-circle.online {
+  color: #26de1a;
+  opacity: 1;
+}
+
+@-webkit-keyframes _ProChat_ripple {
+  /*scale the element to 250% to safely cover the entire link and fade it out*/
+
+  100% {
+    opacity: 0;
+    -moz-transform: scale(5);
+    -ms-transform: scale(5);
+    webkit-transform: scale(5);
+    -webkit-transform: scale(5);
+    transform: scale(5);
+  }
+}
+
+@keyframes _ProChat_ripple {
+  /*scale the element to 250% to safely cover the entire link and fade it out*/
+
+  100% {
+    opacity: 0;
+    -moz-transform: scale(5);
+    -ms-transform: scale(5);
+    webkit-transform: scale(5);
+    -webkit-transform: scale(5);
+    transform: scale(5);
+  }
+}
+
+::-webkit-input-placeholder {
+  /* Chrome */
+  color: #bbb;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #bbb;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #bbb;
+}
+
+:-moz-placeholder {
+  /* Firefox 4 - 18 */
+  color: #bbb;
+}
